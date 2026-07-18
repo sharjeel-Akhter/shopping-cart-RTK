@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-export const useFetch = () => {
+export const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -9,12 +9,17 @@ export const useFetch = () => {
         
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://dummyjson.com/products?limit=194');
+                const response = await axios.get(url);
                 if(!response){
-                    throw new error("Something Went Wrong! Try again")
+                    throw new Error("Something Went Wrong! Try again")
                 }
-                setData(response.data.products);
+                setData(response.data.products ?? response.data);
             } catch (error) {
+                if (error.response?.status === 429) {
+                    setError("Too many requests. Please wait a moment and try again.");
+                } else {
+                    setError(error.message);
+                }
                 setError(error.message);
                 console.error('Error fetching data:', error.message);
             }finally {
@@ -23,6 +28,6 @@ export const useFetch = () => {
         
         }
         fetchData();
-    },[])
+    },[url])
     return { data, loading, error };
 };

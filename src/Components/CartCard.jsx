@@ -8,7 +8,7 @@ function CartCard({product}) {
     
     return (
   <div className="min-w-3/4 flex items-center gap-4 p-4 border border-gray-300 rounded-lg shadow-md mb-4">
-      <img src={product.image} alt={product.name} className="w-20 h-20 object-cover rounded" />
+      <img src={product.thumbnail} alt={product.name} className="w-20 h-20 object-cover rounded" />
 
       <div className="flex-1">
         <p className="text-lg font-medium">{product.title}</p>
