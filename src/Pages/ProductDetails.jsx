@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/CartSlice";
 import {useTitle} from '../hooks/useTitle'
+import { RiLoader4Fill } from "react-icons/ri";
 
 
 
@@ -13,49 +14,23 @@ function ProductDetails() {
   const {data, loading, error} = useFetch(`https://dummyjson.com/products/${param.id}`)
 
   useTitle(`${data?.title} Details | ShoppingEase`)
-  if(loading){
-    return(
-      <section className="min-h-screen bg-slate-50 py-10 animate-pulse">
-  <div className="mx-auto flex flex-col max-w-7xl gap-12 px-6 lg:grid-cols-2">
-
-    
-    <div className="rounded-2xl bg-white p-8 shadow-lg">
-      <div className="mx-auto h-125 w-full rounded-lg bg-gray-200"></div>
-    </div>
-
-    <div className="rounded-2xl bg-white p-8 shadow-lg">
-      <div className="h-6 w-28 rounded-full bg-gray-200"></div>
-      <div className="mt-6 h-10 w-3/4 rounded bg-gray-200"></div>
-      <div className="mt-6 h-5 w-24 rounded bg-gray-200"></div>
-      <div className="mt-8 flex gap-4">
-        <div className="h-10 w-32 rounded bg-gray-200"></div>
-        <div className="h-8 w-20 rounded bg-gray-200"></div>
-      </div>
-      <div className="mt-6 h-5 w-40 rounded bg-gray-200"></div>
-      <div className="mt-10 space-y-3">
-        <div className="h-4 w-full rounded bg-gray-200"></div>
-        <div className="h-4 w-full rounded bg-gray-200"></div>
-        <div className="h-4 w-5/6 rounded bg-gray-200"></div>
-        <div className="h-4 w-2/3 rounded bg-gray-200"></div>
-      </div>
-      <div className="mt-10 h-12 w-48 rounded-lg bg-gray-200"></div>
-
-    </div>
-
-  </div>
-</section>
-    )
-  }
+    if (loading) {
   return (
-<section className="min-h-screen bg-slate-100 py-10">
-  <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+    <div className="flex h-screen items-center justify-center">
+      <RiLoader4Fill className="text-5xl animate-spin text-blue-600" />
+    </div>
+  );
+}
+  return (
+<section className="min-h-screen bg-slate-100 py-10 dark:bg-gray-950">
+  <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden ">
 
-    <div className="grid lg:grid-cols-2 gap-12 p-10">
+    <div className="grid lg:grid-cols-2 gap-12 p-10 dark:bg-gray-950 dark:text-amber-50">
       <div className="flex items-center justify-center bg-slate-50 rounded-2xl">
         <img
           src={data?.thumbnail}
           alt={data?.title}
-          className="h-125 object-contain hover:scale-105 duration-300"
+          className="h-125 object-contain hover:scale-105 duration-300 "
         />
       </div>
       <div>
@@ -96,7 +71,7 @@ function ProductDetails() {
             Description
           </h3>
 
-          <p className="mt-3 leading-8 text-gray-600">
+          <p className="mt-3 leading-8 text-gray-600  dark:text-gray-300">
             {data?.description}
           </p>
         </div>
@@ -113,9 +88,9 @@ function ProductDetails() {
       </div>
 
     </div>
-    <div className="p-10">
+    <div className="p-10 dark:bg-gray-950 dark:text-amber-50">
 
-      <h2 className="text-3xl font-bold mb-6">
+      <h2 className="text-3xl font-bold mb-6 ">
         Product Specifications
       </h2>
 
@@ -165,7 +140,7 @@ function ProductDetails() {
 
     </div>
    
-    <div className="p-10">
+    <div className="p-10 dark:bg-gray-950 text-amber-50">
 
       <h2 className="text-3xl font-bold mb-3">
         Product Tags
@@ -184,7 +159,7 @@ function ProductDetails() {
 
     </div>
 
-    <div className="p-10">
+    <div className="p-10  dark:bg-gray-950 dark:text-amber-50">
 
       <h2 className="text-3xl font-bold mb-3">
         Customer Reviews
@@ -199,7 +174,7 @@ function ProductDetails() {
           >
             <div className="flex justify-between">
 
-              <h3 className="font-semibold text-lg">
+              <h3 className="font-semibold text-lg text-gray-950">
                 {review.reviewerName}
               </h3>
 
