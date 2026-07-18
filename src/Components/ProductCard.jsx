@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../features/CartSlice";
 import { Link } from 'react-router'
+import { useCart } from "../hooks/useCart";
 
 function ProductCard({product}) {
-  const dispatch = useDispatch();
-  const AddTC = useSelector((state)=>state.cart.cartItems)
+  const {addToCart} = useCart()
 
     
     return (
@@ -20,7 +18,7 @@ function ProductCard({product}) {
         <div className=" flex justify-between mt-5 flex-col text-gray-600 dark:text-gray-400">
           
             <p className="text-xl font-semibold text-gray-900 text-center mb-1">Price: ${product.price}</p>
-            <button onClick={()=>dispatch(addToCart(product))} className="text-lg font-semibold bg-green-600 py-1 px-1 rounded-lg text-white text-center mt-1 cursor-pointer">Add to Cart</button>
+            <button onClick={()=>addToCart(product)} className="text-lg font-semibold bg-green-600 py-1 px-1 rounded-lg text-white text-center mt-1 cursor-pointer">Add to Cart</button>
            
         </div>
       </div>

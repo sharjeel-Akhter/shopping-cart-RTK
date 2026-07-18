@@ -7,7 +7,7 @@ function Footer() {
     <footer className="bottom-0 bg-gray-900 text-gray-300">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
+  
           <div>
             <h2 className="text-2xl font-bold text-white">ShopEase</h2>
             <p className="mt-4 text-sm leading-6">
@@ -16,7 +16,7 @@ function Footer() {
             </p>
           </div>
 
-          {/* Shop */}
+  
           <div>
             <h3 className="mb-4 text-lg font-semibold text-white">Shop</h3>
             <ul className="space-y-2">
@@ -43,7 +43,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Customer Care */}
+
           <div>
             <h3 className="mb-4 text-lg font-semibold text-white">
               Customer Care
@@ -72,7 +72,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+        
           <div>
             <h3 className="mb-4 text-lg font-semibold text-white">
               Get in Touch

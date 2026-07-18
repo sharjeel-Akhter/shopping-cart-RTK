@@ -7,6 +7,7 @@ import {useTitle} from '../hooks/useTitle'
 function Shop() {
     const {data:products, loading, error } = useFetch('https://dummyjson.com/products?limit=194')
     useTitle('Shop | Shopping-Ease');
+
     if (loading) {
   return (
     <div className="flex h-screen items-center justify-center">
@@ -28,7 +29,7 @@ function Shop() {
                 
                 <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   { products?.map((product)=>(
-                        <ProductCard key={product.cartId} product={product}/>
+                        <ProductCard key={product.id} product={product}/>
                    ))}
                  
                 </div>

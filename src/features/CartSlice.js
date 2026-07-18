@@ -9,13 +9,11 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            state.cartItems.push({...action.payload, cartId:Date.now()});
-            console.log(State.cartItems)
+            state.cartItems.push({...action.payload, cartId:crypto.randomUUID()});
             
         },
         removeFromCart: (state, action) => {
             state.cartItems = state.cartItems.filter((item) => item.cartId !== action.payload);
-            console.log(state.cartItems)
         },
 
     }

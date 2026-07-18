@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 import { HiArrowLeft } from "react-icons/hi";
-import { useSelector } from "react-redux";
 import CartCard from "../Components/CartCard";
 import { useTitle } from "../hooks/useTitle";
+import { useCart } from "../hooks/useCart";
 
 function Cart() {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const {cartItems} = useCart()
   useTitle('Cart | ShoppingEase')
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price,
@@ -25,7 +25,7 @@ function Cart() {
 
         <Link
           to="/shop"
-          className="absolute bottom-8 left-8 flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition"
+          className="mt-5 flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition"
         >
           <HiArrowLeft />
           Continue Shopping
@@ -35,47 +35,125 @@ function Cart() {
   }
 
   return (
-    <section className="min-h-screen bg-slate-50 py-10 relative">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="min-h-screen bg-slate-100 py-10">
 
-     
-        <div className="mb-8 rounded-xl bg-white p-6 shadow-md ">
-          <h2 className="text-2xl font-bold text-gray-800">
-            Shopping Cart
-          </h2>
-
-          <div className="mt-5 grid grid-cols-2 gap-6 md:grid-cols-4">
-
-            <div className="rounded-lg bg-blue-50 p-4">
-              <p className="text-gray-500">Products</p>
-              <h3 className="text-3xl font-bold text-blue-600">
-                {cartItems.length}
-              </h3>
-            </div>
-
-            <div className="rounded-lg bg-green-50 p-4">
-              <p className="text-gray-500">Total Price</p>
-              <h3 className="text-3xl font-bold text-green-600">
-                ${totalPrice.toFixed(2)}
-              </h3>
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-5">
-          {cartItems.map((item) => (
-            <CartCard key={item.cartId} product={item} />
-          ))}
-        </div>
-      </div>
-
+      <div className="mx-auto max-w-7xl px-5">
         <Link
           to="/shop"
-          className="absolute bottom-8 left-8 flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition cursor-pointer"
+          className="mb-8 inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
         >
           <HiArrowLeft />
           Continue Shopping
         </Link>
+        <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+          <div>
+
+            <div className="mb-6 rounded-2xl bg-white p-6 shadow">
+
+              <h1 className="text-3xl font-bold">
+                Shopping Cart
+              </h1>
+
+              <p className="mt-2 text-gray-500">
+                {cartItems.length} Items in your cart
+              </p>
+
+            </div>
+
+            <div className="space-y-5">
+
+              {cartItems.map((item) => (
+                <CartCard
+                  key={item.cartId}
+                  product={item}
+                />
+              ))}
+
+            </div>
+
+          </div>
+          <aside className="h-fit rounded-2xl bg-white p-7 shadow-lg lg:sticky lg:top-24">
+
+            <h2 className="text-2xl font-bold">
+              Order Summary
+            </h2>
+            <div className="my-8 border"></div>
+            <div className="space-y-5">
+
+              <div className="flex justify-between">
+                <span className="text-gray-600">
+                  Products
+                </span>
+
+                <span>
+                  {cartItems.length}
+                </span>
+              </div>
+
+              <div className="flex justify-between">
+                <span className="text-gray-600">
+                  Subtotal
+                </span>
+
+                <span>
+                  ${totalPrice.toFixed(2)}
+                </span>
+              </div>
+
+              <div className="flex justify-between">
+
+                <span className="text-gray-600">
+                  Shipping
+                </span>
+
+                <span className="font-semibold text-green-600">
+                  FREE
+                </span>
+
+              </div>
+
+              <div className="flex justify-between">
+
+                <span className="text-gray-600">
+                  Tax
+                </span>
+
+                <span>
+                  $0.00
+                </span>
+
+              </div>
+
+            </div>
+
+            <div className="my-8 border"></div>
+
+            <div className="flex justify-between text-2xl font-bold">
+
+              <span>Total</span>
+
+              <span className="text-blue-600">
+                ${totalPrice.toFixed(2)}
+              </span>
+
+            </div>
+            <div className="mt-8 rounded-xl bg-green-50 p-5">
+
+              <h3 className="font-semibold text-green-700">
+                🎉 Free Shipping
+              </h3>
+
+              <p className="mt-2 text-sm text-green-600">
+                Your order qualifies for free delivery.
+              </p>
+
+            </div>
+          </aside>
+
+        </div>
+
+      </div>
+
     </section>
   );
 }

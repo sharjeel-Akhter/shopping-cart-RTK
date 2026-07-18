@@ -21,8 +21,15 @@ function Search() {
 
     if(error){
       return(
-        <div className="flex h-screen items-center justify-center">
+      <div className="flex h-screen items-center justify-center">
       <p className="text-red-700 text-4xl">{error}</p>
+    </div>
+    )
+  } 
+    if(products?.length === 0){
+      return(
+      <div className="h-screen mt-10">
+      <p className="text-gray-700 text-4xl flex justify-center">No products found for "{queryTerm}"</p>
     </div>
     )
     }

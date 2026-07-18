@@ -1,18 +1,32 @@
 import { BrowserRouter } from "react-router"
-
 import AllRoutes from "./routes/AllRoutes"
-import { Provider } from "react-redux"
-import { store } from "../src/Store/store"
+import { useEffect } from "react"
+import { useTheme } from "./hooks/useTheme"
+
+
+
+
 
 function App() {
- 
+  const {theme} = useTheme()
+ useEffect(() => {
+
+   const html = document.documentElement;
+   if(theme==='dark'){
+    html.classList.add('dark')
+   }else{
+    html.classList.remove('dark')
+   }
+   localStorage.setItem('theme', theme);
+   console.log(localStorage.getItem('theme'))
+}, [theme]);
 
   return (
-    <Provider store={store}>
+    
     <BrowserRouter>
       <AllRoutes/>
     </BrowserRouter>
-    </Provider>
+
   )
 }
 
