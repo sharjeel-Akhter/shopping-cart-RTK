@@ -64,14 +64,14 @@ function Cart() {
 
         <div className="space-y-5">
           {cartItems.map((item) => (
-            <CartCard key={item.id} product={item} />
+            <CartCard key={item.cartId} product={item} />
           ))}
         </div>
       </div>
 
         <Link
           to="/shop"
-          className="absolute bottom-8 left-8 flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition"
+          className="absolute bottom-8 left-8 flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition cursor-pointer"
         >
           <HiArrowLeft />
           Continue Shopping

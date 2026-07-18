@@ -9,12 +9,13 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            state.cartItems.push(action.payload);
+            state.cartItems.push({...action.payload, cartId:Date.now()});
+            console.log(State.cartItems)
             
         },
         removeFromCart: (state, action) => {
-            state.cartItems = state.cartItems.filter((item) => item.id !== action.payload);
-            console.log("item reomved",Date.now())
+            state.cartItems = state.cartItems.filter((item) => item.cartId !== action.payload);
+            console.log(state.cartItems)
         },
 
     }

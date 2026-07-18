@@ -16,7 +16,7 @@ function CartCard({product}) {
 
       <div className="text-right">
         <p className="text-xl font-semibold text-gray-700">${product.price}</p>
-        <button onClick={()=>dispatch(removeFromCart(product.id))} className="px-4 py-2 rounded-lg mt-2 bg-blue-600 text-white hover:bg-blue-500 duration-200">Remove From Cart</button>
+        <button onClick={()=>dispatch(removeFromCart(product.cartId))} className="px-4 py-2 rounded-lg mt-2 bg-blue-600 text-white hover:bg-blue-500 duration-200 cursor-pointer">Remove From Cart</button>
       </div>
     </div>
     );
