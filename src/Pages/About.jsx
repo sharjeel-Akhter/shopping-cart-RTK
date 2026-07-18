@@ -4,7 +4,7 @@ import { useTitle } from "../hooks/useTitle";
 function About() {
   useTitle('About | ShoppingEase')
   return (
-<section className="bg-white py-20">
+<section className="bg-white py-20 dark:bg-gray-950">
       <div className="mx-auto max-w-7xl px-6 grid items-center gap-14 md:grid-cols-2">
 
         {/* Left */}
@@ -13,32 +13,28 @@ function About() {
             About Shopping Ease
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold text-gray-900">
+          <h2 className="mt-6 text-4xl font-bold text-gray-900 dark:text-amber-50">
             Making Online Shopping Simple, Fast & Reliable
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-amber-50">
             At <span className="font-semibold text-blue-600">Shopping Ease</span>,
             we believe everyone deserves a smooth shopping experience. From
             trending fashion and electronics to everyday essentials, we bring
             quality products together in one convenient place.
           </p>
 
-          <p className="mt-4 text-lg leading-8 text-gray-600">
+          <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-amber-200">
             Our goal is to help customers discover great products, compare
             prices easily, and shop with confidence through a clean, intuitive
             experience.
           </p>
 
-          <Link
-            to="/shop"
-            className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
-          >
-            Explore Products
+          <Link to="/shop"
+            className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">Explore Products
           </Link>
         </div>
 
-        {/* Right */}
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="rounded-xl bg-slate-50 p-6 shadow">
             <div className="text-4xl">🛍️</div>

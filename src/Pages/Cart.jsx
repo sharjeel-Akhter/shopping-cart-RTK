@@ -14,8 +14,8 @@ function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <section className="min-h-screen bg-slate-50 flex flex-col items-center justify-center relative">
-        <h2 className="text-4xl font-bold text-gray-800">
+      <section className="min-h-screen bg-slate-50 flex flex-col items-center justify-center relative dark:bg-gray-950">
+        <h2 className="text-4xl font-bold text-gray-800 dark:text-amber-50">
           🛒 Your Cart is Empty
         </h2>
 
@@ -35,7 +35,7 @@ function Cart() {
   }
 
   return (
-    <section className="min-h-screen bg-slate-100 py-10">
+    <section className="min-h-screen bg-slate-100 py-10 dark:bg-gray-950">
 
       <div className="mx-auto max-w-7xl px-5">
         <Link

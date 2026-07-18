@@ -9,16 +9,17 @@ import { useTheme } from "./hooks/useTheme"
 
 function App() {
   const {theme} = useTheme()
- useEffect(() => {
+  console.log(theme)
+useEffect(() => {
+  const html = document.documentElement;
 
-   const html = document.documentElement;
-   if(theme==='dark'){
-    html.classList.add('dark')
-   }else{
-    html.classList.remove('dark')
-   }
-   localStorage.setItem('theme', theme);
-   console.log(localStorage.getItem('theme'))
+  html.classList.remove("dark");
+
+  if (theme === "dark") {
+    html.classList.add("dark");
+  }
+
+  localStorage.setItem("theme", theme);
 }, [theme]);
 
   return (
