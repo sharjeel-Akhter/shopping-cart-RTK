@@ -3,7 +3,6 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FaShoppingBag } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import { useSelector } from "react-redux";
 import { useCart } from "../hooks/useCart";
 import { useState } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
@@ -25,7 +24,7 @@ function Header() {
     return navigate(`/search?q=${queryTerm}`);
   };
   return (
-<header className="sticky top-0 z-50 border-b border-gray-200/60 bg-white/80 backdrop-blur-2xl shadow-lg transition-all duration-300 dark:border-slate-700/60 dark:bg-slate-900/80">
+<header className="sticky top-0 z-50 border-b border-gray-200/60 bg-white/80 backdrop-blur-2xl shadow-lg dark:border-slate-700/60 dark:bg-slate-900/80">
 
   <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
     <Link to="/" className="flex items-center gap-3">
@@ -82,7 +81,7 @@ function Header() {
     <div className="flex items-center gap-3 md:gap-6">
       <form
         onSubmit={handleSubmit}
-        className="hidden w-72 items-center rounded-full bg-gray-100 px-4 py-2 transition-colors duration-300 focus-within:ring-2 focus-within:ring-blue-500 dark:bg-slate-800 lg:flex">
+        className="hidden w-72 items-center rounded-full bg-gray-100 px-4 py-2 transition-colors focus-within:ring-2 focus-within:ring-blue-500 dark:bg-slate-800 lg:flex">
         <FiSearch className="text-gray-500 dark:text-gray-400" />
 
         <input type="search" name="search" autoComplete="off" placeholder="Search products..." className="ml-2 w-full bg-transparent text-sm text-gray-900 outline-none placeholder:text-gray-500 dark:text-white dark:placeholder:text-gray-400"/>
@@ -141,7 +140,7 @@ function Header() {
               : "text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"}>Cart</NavLink>
 
         <form onSubmit={handleSubmit}>
-          <div className="mt-2 flex items-center rounded-full bg-gray-100 px-4 py-2 transition-colors duration-300 dark:bg-slate-800">
+          <div className="mt-2 flex items-center rounded-full bg-gray-100 px-4 py-2 transition-colors dark:bg-slate-800">
 
             <FiSearch className="text-gray-500 dark:text-gray-400" />
 
